@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iron Gate - Log In</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- Base page styles (same theme as the home page) ---------- */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f7f4ef;
+  color: #2a2a2a;
+  margin: 0;
+}
+h1, h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #111111;
+}
+a {
+  text-decoration: none;
+  color: #2a2a2a;
+}
+.red {
+  color: #b71e42;
+}
+
+/* ---------- Top bar with logo, same as home page navbar ---------- */
+.navbar {
+  border-bottom: 1px solid #e0ddd4;
+  padding: 16px 0;
+}
+.navbar .container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand img {
+  width: 26px;
+}
+.brand span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: #111111;
+}
+
+/* ---------- Centered login card ---------- */
+.login-wrap {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.login-card {
+  background-color: #ffffff;
+  border: 1px solid #e0ddd4;
+  border-radius: 10px;
+  padding: 32px;
+  width: 100%;
+  max-width: 400px;
+}
+.login-card h1 {
+  font-size: 32px;
+  margin: 0 0 6px 0;
+  text-align: center;
+}
+.login-card > p {
+  color: #6b6b6b;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+
+/* ---------- Two tabs: Client / Security Firm ---------- */
+.tabs {
+  display: flex;
+  background-color: #efece4;
+  border: 1px solid #e0ddd4;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b6b6b;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tab-btn.active {
+  background-color: #b71e42;
+  color: #ffffff;
+}
+
+/* ---------- Form fields ---------- */
+.login-form {
+  display: none; /* hidden by default, JS shows the active one */
+}
+.login-form.active {
+  display: block;
+}
+.login-form label {
+  display: block;
+  font-size: 12px;
+  color: #6b6b6b;
+  margin-bottom: 6px;
+}
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  background-color: #faf9f6;
+  border: 1px solid #d8d4c8;
+  border-radius: 6px;
+  color: #222222;
+  box-sizing: border-box;
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+.btn-red {
+  background-color: #b71e42;
+  color: #ffffff;
+}
+.btn-red:hover {
+  background-color: #8b1530;
+}
+.login-card .footnote {
+  text-align: center;
+  font-size: 13px;
+  color: #777777;
+  margin-top: 18px;
+}
+.login-card .footnote a {
+  color: #b71e42;
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Iron Gate logo">
+      <span>IRON GATE</span>
+    </a>
+  </div>
+</div>
+
+<!-- Login card -->
+<div class="login-wrap">
+  <div class="login-card">
+    <h1>Welcome Back</h1>
+    <p>Log in to your Iron Gate account</p>
+
+    <!-- Tabs to switch between the two account types -->
+    <div class="tabs">
+      <button type="button" class="tab-btn active" id="clientTabBtn" onclick="showTab('client')">Client</button>
+      <button type="button" class="tab-btn" id="firmTabBtn" onclick="showTab('firm')">Security Firm</button>
+    </div>
+
+    <!-- Client login form -->
+    <form class="login-form active" id="clientForm"
+          onsubmit="alert('Logged in as Client. Redirecting to your dashboard...'); return false;">
+      <label>Company / Facility Email</label>
+      <input type="email" placeholder="you@company.com" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="********" required>
+
+      <button class="btn btn-red" type="submit">Log In as Client</button>
+    </form>
+
+    <!-- Security firm login form -->
+    <form class="login-form" id="firmForm"
+          onsubmit="alert('Logged in as Security Firm. Redirecting to your dashboard...'); return false;">
+      <label>Firm Email</label>
+      <input type="email" placeholder="firm@company.com" required>
+
+      <label>MOI License Number</label>
+      <input type="text" placeholder="License #" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="********" required>
+
+      <button class="btn btn-red" type="submit">Log In as Security Firm</button>
+    </form>
+
+    <p class="footnote">Don't have an account? <a href="index.html">Go back and register</a></p>
+  </div>
+</div>
+
+<script>
+// Switches between the "Client" and "Security Firm" login forms.
+// Only one tab and one form are visible at a time.
+function showTab(type) {
+  var clientTabBtn = document.getElementById('clientTabBtn');
+  var firmTabBtn = document.getElementById('firmTabBtn');
+  var clientForm = document.getElementById('clientForm');
+  var firmForm = document.getElementById('firmForm');
+
+  if (type === 'client') {
+    clientTabBtn.classList.add('active');
+    firmTabBtn.classList.remove('active');
+    clientForm.classList.add('active');
+    firmForm.classList.remove('active');
+  } else {
+    firmTabBtn.classList.add('active');
+    clientTabBtn.classList.remove('active');
+    firmForm.classList.add('active');
+    clientForm.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
