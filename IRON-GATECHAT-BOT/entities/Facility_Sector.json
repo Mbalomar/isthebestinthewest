@@ -1,0 +1,9 @@
+{
+  "id": "32ca61d4-7ec4-4900-a6b5-ddcb6e3100ba",
+  "name": "Facility_Sector",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

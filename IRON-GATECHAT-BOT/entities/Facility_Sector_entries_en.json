@@ -1,0 +1,41 @@
+[
+  {
+    "value": "shopping mall",
+    "synonyms": [
+      "shopping mall",
+      "مجمع تجاري",
+      "مول"
+    ]
+  },
+  {
+    "value": "warehouse",
+    "synonyms": [
+      "warehouse",
+      "مستودع، صناعية"
+    ]
+  },
+  {
+    "value": "event",
+    "synonyms": [
+      "event",
+      "ايفنت"
+    ]
+  },
+  {
+    "value": "construction",
+    "synonyms": [
+      "construction",
+      "موقع بناء",
+      "مقاولات",
+      "مشروع بناء"
+    ]
+  },
+  {
+    "value": "corporate",
+    "synonyms": [
+      "corporate",
+      "مكتب",
+      "شركة"
+    ]
+  }
+]

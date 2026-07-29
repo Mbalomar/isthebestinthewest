@@ -1,0 +1,59 @@
+{
+  "id": "36578cb8-1e23-407b-a335-78e832db15fc",
+  "name": "Post_Request",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "2c3aeb8e-0962-4a8b-83fd-8e2fb8ee8af2",
+          "name": "Facility_Sector",
+          "required": true,
+          "dataType": "@Facility_Sector",
+          "value": "$Facility_Sector",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "وش نوع المنشأة اللي تحتاج لها حراسة؟"
+            },
+            {
+              "lang": "en",
+              "value": "مجمع تجاري، مستودع، موقع بناء"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "تم استلام طلبك! طلبك لعدد $number حراس لمنشأة ( $Facility_Sector ) في ($Saudi_City ) صار جاهز. راح يتم عرض الطلب للشركات الأمنية المرخصة في منصة Iron Gate عشان يقدمون عروضهم للمقارنة."
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
