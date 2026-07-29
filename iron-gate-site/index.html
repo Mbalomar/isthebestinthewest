@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Iron Gate - Security Manpower System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f7f4ef;
+  color: #2a2a2a;
+  margin: 0;
+}
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #111111;
+}
+a {
+  text-decoration: none;
+  color: #2a2a2a;
+}
+.red {
+  color: #b71e42;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #f7f4ef;
+  border-bottom: 1px solid #e0ddd4;
+  padding: 16px 0;
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.navbar a {
+  margin-left: 20px;
+  font-size: 14px;
+}
+.navbar a:hover {
+  color: #b71e42;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand img {
+  width: 26px;
+  height: auto;
+  display: block;
+}
+.brand span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: #111111;
+  letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+.btn-red {
+  background-color: #b71e42;
+  color: #ffffff;
+}
+.btn-red:hover {
+  background-color: #8b1530;
+}
+.btn-outline {
+  background-color: transparent;
+  color: #333333;
+  border: 1px solid #d8d4c8;
+}
+.btn-outline:hover {
+  border-color: #b71e42;
+  color: #b71e42;
+}
+
+/* Sections */
+.section {
+  padding: 70px 0;
+  border-bottom: 1px solid #e0ddd4;
+  text-align: center;
+}
+.section-dark {
+  background-color: #efece4;
+}
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+.hero p {
+  color: #6b6b6b;
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto 28px auto;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.stat h2 {
+  font-size: 28px;
+  margin: 0;
+}
+.stat p {
+  font-size: 12px;
+  color: #6b6b6b;
+  text-transform: uppercase;
+  margin: 4px 0 0 0;
+}
+
+/* Cards in a row */
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  text-align: left;
+}
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0ddd4;
+  border-radius: 10px;
+  padding: 24px;
+  flex: 1;
+  min-width: 220px;
+}
+.card-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 14px;
+  display: block;
+}
+.card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card p {
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 1px solid #e0ddd4;
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin: 4px;
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Modal - simple W3Schools style show/hide */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #ffffff;
+  border: 1px solid #e0ddd4;
+  margin: 8% auto;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 420px;
+  text-align: left;
+  position: relative;
+}
+.close {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  font-size: 24px;
+  color: #999999;
+  cursor: pointer;
+}
+.close:hover {
+  color: #111111;
+}
+.modal-content label {
+  display: block;
+  font-size: 12px;
+  color: #6b6b6b;
+  margin-bottom: 6px;
+}
+.modal-content input, .modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  background-color: #faf9f6;
+  border: 1px solid #d8d4c8;
+  border-radius: 6px;
+  color: #222222;
+  box-sizing: border-box;
+}
+.modal-content .btn {
+  width: 100%;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: #777777;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="container">
+    <div class="brand">
+      <img src="images/logo.svg" alt="Iron Gate logo">
+      <span>IRON GATE</span>
+    </div>
+    <div>
+      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#firms">For Firms</a>
+      <a href="#contact">Contact</a>
+      <a href="iron-gate-app.html" class="btn btn-outline">Log In</a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="section hero">
+  <div class="container">
+    <h1>Security Manpower,<br><span class="red">On Demand</span></h1>
+    <p>Iron Gate connects facilities in Saudi Arabia with licensed security firms. Post a request, compare bids, and track every guard on shift.</p>
+    <button class="btn btn-red" onclick="document.getElementById('requestModal').style.display='block'">Post a Request</button>
+    <button class="btn btn-outline" onclick="document.getElementById('firmModal').style.display='block'">I'm a Security Firm</button>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="section section-dark">
+  <div class="container stats">
+    <div class="stat"><h2>140+</h2><p>Licensed Firms</p></div>
+    <div class="stat"><h2>2,600</h2><p>Guards Tracked Daily</p></div>
+    <div class="stat"><h2>96%</h2><p>Shamoos Compliance</p></div>
+    <div class="stat"><h2>2.4m</h2><p>Avg. Response Time</p></div>
+  </div>
+</div>
+
+<!-- How It Works -->
+<div class="section" id="how">
+  <div class="container">
+    <h2>How It Works</h2>
+    <p style="color:#6b6b6b">From request to coverage in three steps.</p>
+    <div class="row">
+      <div class="card">
+        <img class="card-icon" src="images/icon-post.svg" alt="Post a request icon">
+        <h3><span class="red">01</span> Post a Request</h3>
+        <p>Describe the site, sector, guard count, and duration. Your request goes live to licensed firms.</p>
+      </div>
+      <div class="card">
+        <img class="card-icon" src="images/icon-compare.svg" alt="Compare bids icon">
+        <h3><span class="red">02</span> Compare Bids</h3>
+        <p>Review pricing, ratings, and active contracts side by side, then accept a bid.</p>
+      </div>
+      <div class="card">
+        <img class="card-icon" src="images/icon-tracking.svg" alt="Live tracking icon">
+        <h3><span class="red">03</span> Track Live</h3>
+        <p>See every guard on a live map and get alerts if someone leaves their post.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<div class="section section-dark" id="features">
+  <div class="container">
+    <h2>What You Get</h2>
+    <p style="color:#6b6b6b">Everything needed to source and oversee security staff in one place.</p>
+    <div class="row">
+      <div class="card">
+        <img class="card-icon" src="images/icon-tracking.svg" alt="Live guard tracking icon">
+        <h3>Live Guard Tracking</h3>
+        <p>Every guard's shift is geofenced to their assigned zone, with instant alerts if someone leaves their post.</p>
+      </div>
+      <div class="card">
+        <img class="card-icon" src="images/icon-compliance.svg" alt="Shamoos compliance icon">
+        <h3>Shamoos Compliance</h3>
+        <p>Guard registration is verified automatically before a contract goes live.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card">
+        <img class="card-icon" src="images/icon-incident.svg" alt="Incident reporting icon">
+        <h3>Incident Reporting</h3>
+        <p>Guards can log incidents from the field with GPS and a timestamp.</p>
+      </div>
+      <div class="card">
+        <img class="card-icon" src="images/icon-invoice.svg" alt="Automatic invoicing icon">
+        <h3>Automatic Invoicing</h3>
+        <p>Contracts, invoices, and platform commission are calculated automatically each month.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sectors -->
+<div class="section">
+  <div class="container">
+    <h2>Built For</h2>
+    <div>
+      <span class="tag">Shopping Malls</span>
+      <span class="tag">Industrial Warehouses</span>
+      <span class="tag">Events</span>
+      <span class="tag">Construction Sites</span>
+      <span class="tag">Corporate Offices</span>
+    </div>
+  </div>
+</div>
+
+<!-- For Firms -->
+<div class="section section-dark" id="firms">
+  <div class="container">
+    <h2>For Security Firms</h2>
+    <p style="color:#6b6b6b">Bid on real demand and get paid on time. See open requests, win contracts on rating and price, and sync your roster from Shamoos in one step.</p>
+    <button class="btn btn-red" onclick="document.getElementById('firmModal').style.display='block'">Register Your Firm</button>
+  </div>
+</div>
+
+<!-- Final CTA -->
+<div class="section" id="contact">
+  <div class="container">
+    <h2>Post Your First Request Today</h2>
+    <p style="color:#6b6b6b">No subscription. Firms bid, you choose, Iron Gate handles the paperwork.</p>
+    <button class="btn btn-red" onclick="document.getElementById('requestModal').style.display='block'">Post a Request</button>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Iron Gate. All rights reserved. Dammam &middot; Riyadh &middot; Jeddah &middot; Khobar
+</footer>
+
+<!-- Post a Request Modal -->
+<div id="requestModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('requestModal').style.display='none'">&times;</span>
+    <h2>Post a Request</h2>
+    <form onsubmit="alert('Thanks! Your request is now live on the marketplace.'); document.getElementById('requestModal').style.display='none'; return false;">
+      <label>Facility / Location Name</label>
+      <input type="text" placeholder="e.g. Dammam Mall - East Wing" required>
+
+      <label>Sector</label>
+      <select>
+        <option>Shopping Mall</option>
+        <option>Industrial Warehouse</option>
+        <option>Event</option>
+        <option>Construction Site</option>
+        <option>Corporate Office</option>
+      </select>
+
+      <label>Number of Guards</label>
+      <input type="number" min="1" placeholder="10" required>
+
+      <label>City / Region</label>
+      <select>
+        <option>Dammam - Eastern Province</option>
+        <option>Jubail Industrial</option>
+        <option>Riyadh</option>
+        <option>Jeddah</option>
+        <option>Khobar</option>
+      </select>
+
+      <label>Contact Email or Phone</label>
+      <input type="text" placeholder="you@company.com" required>
+
+      <button class="btn btn-red" type="submit">Submit Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- I'm a Security Firm Modal -->
+<div id="firmModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('firmModal').style.display='none'">&times;</span>
+    <h2>Register Your Firm</h2>
+    <form onsubmit="alert('Thanks! We will verify your license and Shamoos status, then be in touch.'); document.getElementById('firmModal').style.display='none'; return false;">
+      <label>Company Name</label>
+      <input type="text" placeholder="e.g. AlAmeen Security Co." required>
+
+      <label>MOI License Number</label>
+      <input type="text" placeholder="License #" required>
+
+      <label>Number of Guards on Roster</label>
+      <input type="number" min="1" placeholder="25" required>
+
+      <label>City / Region</label>
+      <select>
+        <option>Dammam - Eastern Province</option>
+        <option>Jubail Industrial</option>
+        <option>Riyadh</option>
+        <option>Jeddah</option>
+        <option>Khobar</option>
+      </select>
+
+      <label>Contact Email or Phone</label>
+      <input type="text" placeholder="you@company.com" required>
+
+      <button class="btn btn-red" type="submit">Submit Registration</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// Close a modal when the user clicks outside of it (basic W3Schools pattern)
+window.onclick = function(event) {
+  var reqModal = document.getElementById('requestModal');
+  var firmModal = document.getElementById('firmModal');
+  if (event.target == reqModal) { reqModal.style.display = 'none'; }
+  if (event.target == firmModal) { firmModal.style.display = 'none'; }
+}
+</script>
+
+</body>
+</html>
